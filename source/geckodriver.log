@@ -1,0 +1,26 @@
+1589585673545	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilee5KHqF"
+1589585674092	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1589585674092	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1589585674093	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1589585674093	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: undefined, line 14: Error: An unexpected error occurred
+JavaScript error: moz-extension://9c350cbd-ec3a-4907-b0d7-8ff96d64f46a/lib/picture_in_picture_overrides.js, line 15: Error: Incorrect argument types for pictureInPictureParent.setOverrides.
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1589585676591	Marionette	INFO	Listening on port 33335
+1589585676657	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://rdelpy:Alpha!0557@services.emi.u-bordeaux.fr/exam/js/mootools-1.2.4-core.js, line 213: Array.slice is deprecated; use Array.prototype.slice instead
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1589585721923	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilegecnHE"
+1589585722532	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1589585722532	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1589585722533	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1589585722533	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+JavaScript error: undefined, line 14: Error: An unexpected error occurred
+JavaScript error: moz-extension://df73bd4c-ae3c-4c96-b6fb-1ccd5c007797/lib/picture_in_picture_overrides.js, line 15: Error: Incorrect argument types for pictureInPictureParent.setOverrides.
+JavaScript error: resource:///modules/sessionstore/SessionStore.jsm, line 1325: uncaught exception: 2147746065
+1589585724704	Marionette	INFO	Listening on port 36341
+1589585724756	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://rdelpy:Alpha!0557@services.emi.u-bordeaux.fr/exam/js/mootools-1.2.4-core.js, line 213: Array.slice is deprecated; use Array.prototype.slice instead
+1589585751407	Marionette	INFO	Stopped listening on port 36341

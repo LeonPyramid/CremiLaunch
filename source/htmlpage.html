@@ -1,0 +1,661 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr"><head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<title>CREMI  - Université de Bordeaux - </title>
+ <script type="text/javascript" src="js/mootools-1.2.4-core.js"></script>
+<script type="text/javascript" src="js/mootools-1.2.4.4-more.js"></script><script type="text/javascript" src="js/searchParam.js"></script><script language="javascript" type="text/javascript">setConfirmMessage('Are you sure?');setYesMessage('Yes');setNoMessage('No');setDelFileMessage('Delete File');</script>  <script type="text/javascript">
+function quelle_touche(evenement)
+{
+  var touche = window.event ? evenement.keyCode : evenement.which;
+
+  if (touche == 13) {
+    return false;
+  } else {
+    return touche;
+  }
+}
+</script>
+<link rel="stylesheet" type="text/css" href="images/style.css">
+<link rel="shortcut icon" href="images/logo-Cremi-triangle-seul.png">
+</head>
+<body onload="searchParam(&quot;wol&quot;)">
+<div id="header">
+<a name="top"></a>
+    <!--   TABLE POUR BANDEAU HAUT  y13y -->
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tbody><tr>
+        <td><img alt="" src="../images/Logo_nouvelle_aquitaine.svg" height="90" border="0"></td>
+        <td style="margin-right: auto; margin-left: auto;text-align: center"><a href="http://www.u-bordeaux.fr"><img name="logo_bx1" src="images/Universite-Bordeaux-450x181.gif" alt="Université De Bordeaux" title="Université De Bordeaux" width="225" height="90" border="0"></a><br>
+          <span class="titreufr" style="white-space: nowrap;"><a href="http://www.u-bordeaux.fr/Colleges-et-departements/College-Sciences-et-technologies/Unite-de-formation-d-informatique">U.F. Informatique</a></span><br>
+          <span class="titrecremi"><a href="http://www.emi.u-bordeaux.fr/">Centre de Ressources pour l'Enseignement des Mathématiques et de l'Informatique</a></span>
+        </td>
+        <td><a href="http://www.emi.u-bordeaux.fr"><img alt="" src="images/logo-Cremi-4.png" width="145" height="84" border="0"></a></td>
+      </tr>
+     <tr> <td colspan="3"><img alt="" src="images/filet_logo.gif" style="margin: 10px -4px;" width="100%" height="3" border="0"></td> </tr>
+    </tbody></table>
+    <!--FIN  TABLE POUR BANDEAU HAUT  -->
+</div>
+
+<!--LE CORPS DU MESSAGE  -->
+
+<!-- 
+<div id="main"> --> <!-- Div principale--> 
+<div id="menu">
+<ul><li><a href="./?page=wol" title="Wake On Lan">Wake On Lan</a></li>
+</ul><br><p id="submenuwol" align="center"><button onclick="getWake()">Start Wake On Lan</button>
+<select class="wol_mode" id="wol_mode" name="wol_mode">
+	<option value="std" selected="selected">Startup mode</option>
+	<option value="std">--------</option>
+	<option value="std">Default</option>
+	  <option value="nightwork">Night Work</option>
+	  
+	<option value="rebootwindows">Boot with Windows</option></select><input class="wol_mode" type="checkbox" name="send_mail" value="send_mail" id="send_mail"> Host send email<br>
+<img src="images/b_help.png" alt="info" title="If option was checked, the workstation send an email on boot. Warning! Night default was : Night Update">
+</p><!--SubMenuWol-->
+ 
+<br><br></div><!--FIN MENU-->
+<div id="main"><h2>Wake On Lan</h2><hr><div id="simple"><table id="res_autogen" class="res" border="1"><tbody><tr><td><b>Host name :</b></td><td><input class="search" type="text" onchange="searchParam(&quot;wol&quot;)" name="host_name" value=""></td></tr><tr><td><b>Host minimum number :</b></td><td><input class="search" type="text" onchange="searchParam(&quot;wol&quot;)" name="host_nb" value=""></td></tr></tbody></table></div><p><img id="img_advance" src="./images/plus.gif" onclick="toggledisplay('form_')" class="hidden" width="16" height="16">&nbsp;Advance search</p><div id="form_" class="hidden"><!--int(11)-->
+<!--enum('i7-2600 8Go','E3-1240(v6) 16Go','E3-1240(v5) 16Go','E3-1240(v3) 8Go','2 x E5-2630(v2) 32Go','E5-1620(v4) 16Go','2 x E5-2620(v2) 32Go','i7-6700 16Go','i5-3570 8Go','i7-7700 16Go','Xeon®Gold 5118 64Go','2x Xeon®Gold 5118 64Go')-->
+<select class="search" id="id_CPU" name="CPU" onchange="searchParam(&quot;wol&quot;)">
+<option value="%" selected="selected">CPU</option>
+<option value="%">--------</option>
+<option value="i7-2600 8Go">i7-2600 8Go</option>
+<option value="E3-1240(v6) 16Go">E3-1240(v6) 16Go</option>
+<option value="E3-1240(v5) 16Go">E3-1240(v5) 16Go</option>
+<option value="E3-1240(v3) 8Go">E3-1240(v3) 8Go</option>
+<option value="2 x E5-2630(v2) 32Go">2 x E5-2630(v2) 32Go</option>
+<option value="E5-1620(v4) 16Go">E5-1620(v4) 16Go</option>
+<option value="2 x E5-2620(v2) 32Go">2 x E5-2620(v2) 32Go</option>
+<option value="i7-6700 16Go">i7-6700 16Go</option>
+<option value="i5-3570 8Go">i5-3570 8Go</option>
+<option value="i7-7700 16Go">i7-7700 16Go</option>
+<option value="Xeon®Gold 5118 64Go">Xeon®Gold 5118 64Go</option>
+<option value="2x Xeon®Gold 5118 64Go">2x Xeon®Gold 5118 64Go</option>
+</select> <!--int(11)-->
+<select class="search" id="id_core" name="core" onchange="searchParam(&quot;wol&quot;)"><option value="%" selected="selected">core</option>
+<option value="%">--------</option>
+<option value="12">12</option><option value="48">48</option><option value="16">16</option><option value="4">4</option><option value="24">24</option></select><!--enum('none','17"','2x17"','20"','2x20"','22"','2x22"','24"','27"','2x24"','23"','27"(4k)')-->
+<select class="search" id="id_screen" name="screen" onchange="searchParam(&quot;wol&quot;)">
+<option value="%" selected="selected">screen</option>
+<option value="%">--------</option>
+<option value="none">none</option>
+<option value="17&quot;">17"</option>
+<option value="2x17&quot;">2x17"</option>
+<option value="20&quot;">20"</option>
+<option value="2x20&quot;">2x20"</option>
+<option value="22&quot;">22"</option>
+<option value="2x22&quot;">2x22"</option>
+<option value="24&quot;">24"</option>
+<option value="27&quot;">27"</option>
+<option value="2x24&quot;">2x24"</option>
+<option value="23&quot;">23"</option>
+<option value="27&quot;(4k)">27"(4k)</option>
+</select> <!--enum('GTX 1070 (8Go)','GTX 1060 (6Go)','GTX 960 (4Go)','Quadro 4000 (2Go)','Quadro k2000 (2Go)','NVS 300 (512Mo)','Quadro k600 (1Go)','Intel HD 530 (share)','Intel HD 2500 (share)','Intel HD 630 (share)','RTX 2070 (8Go)')-->
+<select class="search" id="id_GPU" name="GPU" onchange="searchParam(&quot;wol&quot;)">
+<option value="%" selected="selected">GPU</option>
+<option value="%">--------</option>
+<option value="GTX 1070 (8Go)">GTX 1070 (8Go)</option>
+<option value="GTX 1060 (6Go)">GTX 1060 (6Go)</option>
+<option value="GTX 960 (4Go)">GTX 960 (4Go)</option>
+<option value="Quadro 4000 (2Go)">Quadro 4000 (2Go)</option>
+<option value="Quadro k2000 (2Go)">Quadro k2000 (2Go)</option>
+<option value="NVS 300 (512Mo)">NVS 300 (512Mo)</option>
+<option value="Quadro k600 (1Go)">Quadro k600 (1Go)</option>
+<option value="Intel HD 530 (share)">Intel HD 530 (share)</option>
+<option value="Intel HD 2500 (share)">Intel HD 2500 (share)</option>
+<option value="Intel HD 630 (share)">Intel HD 630 (share)</option>
+<option value="RTX 2070 (8Go)">RTX 2070 (8Go)</option>
+</select> <!--enum('Linux(64b)','Linux(64b)/Windows 10(64b)','Windows 10','Solaris','OSX','Linux/Windows','Linux(32b)','intel HD-630 (share)')-->
+<select class="search" id="id_os" name="os" onchange="searchParam(&quot;wol&quot;)">
+<option value="%" selected="selected">os</option>
+<option value="%">--------</option>
+<option value="Linux(64b)">Linux(64b)</option>
+<option value="Linux(64b)/Windows 10(64b)">Linux(64b)/Windows 10(64b)</option>
+<option value="Windows 10">Windows 10</option>
+<option value="Solaris">Solaris</option>
+<option value="OSX">OSX</option>
+<option value="Linux/Windows">Linux/Windows</option>
+<option value="Linux(32b)">Linux(32b)</option>
+<option value="intel HD-630 (share)">intel HD-630 (share)</option>
+</select> <!--varchar(1024)-->
+<input class="search" id="id_comment" type="text" name="comment" value="comment" onchange="searchParam(&quot;wol&quot;)"><!--tinyint(1)-->
+<select class="search" id="id_reservable" name="reservable" onchange="searchParam(&quot;wol&quot;)">
+<option value="%" selected="selected">reservable</option>
+<option value="%">----------</option>
+<option value="1">yes</option><option value="0">no</option><option value="%">either</option></select><br>
+</div>
+<br><div id="Result"><table id="res_getresult" class="res" border="1">
+<tbody><tr>
+<th>name <i>(host number)</i></th><th>block</th><th>floor</th><th>description</th><th>core</th><th>CPU</th><th>screen</th><th>GPU</th><th>os</th><th>comment</th>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle001_1_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle001_1&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle001_1" class="room" onclick="checkAll(&quot;Salle001_1&quot;)">&nbsp;Salle001 <i>(36)</i>
+	  <div id="div_Salle001_1" class="hidden" style="display: block;">
+<input type="checkbox" id="479" class="host">&nbsp;agamar<br>
+<input type="checkbox" id="480" class="host">&nbsp;alderaan<br>
+<input type="checkbox" id="481" class="host">&nbsp;antonella<br>
+<input type="checkbox" id="482" class="host">&nbsp;bianca<br>
+<input type="checkbox" id="483" class="host">&nbsp;bilbringi<br>
+<input type="checkbox" id="484" class="host">&nbsp;bolognaise<br>
+<input type="checkbox" id="485" class="host">&nbsp;brunella<br>
+<input type="checkbox" id="486" class="host">&nbsp;calzonne<br>
+<input type="checkbox" id="487" class="host">&nbsp;carmela<br>
+<input type="checkbox" id="488" class="host">&nbsp;classica<br>
+<input type="checkbox" id="489" class="host">&nbsp;corellia<br>
+<input type="checkbox" id="490" class="host">&nbsp;coruscant<br>
+<input type="checkbox" id="491" class="host">&nbsp;dagobah<br>
+<input type="checkbox" id="492" class="host">&nbsp;donatella<br>
+<input type="checkbox" id="493" class="host">&nbsp;endor<br>
+<input type="checkbox" id="512" class="host">&nbsp;erladu<br>
+<input type="checkbox" id="495" class="host">&nbsp;gargantua<br>
+<input type="checkbox" id="496" class="host">&nbsp;gina<br>
+<input type="checkbox" id="497" class="host">&nbsp;giulietta<br>
+<input type="checkbox" id="498" class="host">&nbsp;grandiosa<br>
+<input type="checkbox" id="499" class="host">&nbsp;graziella<br>
+<input type="checkbox" id="478" class="host">&nbsp;helska<br>
+<input type="checkbox" id="500" class="host">&nbsp;honoghr<br>
+<input type="checkbox" id="501" class="host">&nbsp;hoth<br>
+<input type="checkbox" id="502" class="host">&nbsp;linosa<br>
+<input type="checkbox" id="503" class="host">&nbsp;napoletano<br>
+<input type="checkbox" id="504" class="host">&nbsp;reine<br>
+<input type="checkbox" id="505" class="host">&nbsp;religiosa<br>
+<input type="checkbox" id="506" class="host">&nbsp;rosanna<br>
+<input type="checkbox" id="507" class="host">&nbsp;salinca<br>
+<input type="checkbox" id="508" class="host">&nbsp;serena<br>
+<input type="checkbox" id="509" class="host">&nbsp;sicilia<br>
+<input type="checkbox" id="510" class="host">&nbsp;tatooine<br>
+<input type="checkbox" id="511" class="host">&nbsp;verde<br>
+<input type="checkbox" id="551" class="host">&nbsp;verdura<br>
+<input type="checkbox" id="550" class="host">&nbsp;yavin<br>
+
+</div></td><td>cremi</td><td>rdc</td><td>Libre Service</td><td>4</td><td>i7-2600 8Go</td><td>2x22"</td><td>NVS 300 (512Mo)</td><td>Linux(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle004_2_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle004_2&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle004_2" class="room" onclick="checkAll(&quot;Salle004_2&quot;)">&nbsp;Salle004 <i>(10)</i>
+	  <div id="div_Salle004_2" class="hidden" style="display: block;">
+<input type="checkbox" id="540" class="host">&nbsp;angelus<br>
+<input type="checkbox" id="541" class="host">&nbsp;ausone<br>
+<input type="checkbox" id="542" class="host">&nbsp;chevalblanc<br>
+<input type="checkbox" id="543" class="host">&nbsp;hautbrion<br>
+<input type="checkbox" id="544" class="host">&nbsp;latour<br>
+<input type="checkbox" id="545" class="host">&nbsp;margaux<br>
+<input type="checkbox" id="546" class="host">&nbsp;petrus<br>
+<input type="checkbox" id="547" class="host">&nbsp;rothschild<br>
+<input type="checkbox" id="548" class="host">&nbsp;valandraud<br>
+<input type="checkbox" id="549" class="host">&nbsp;yquem<br>
+
+</div></td><td>cremi</td><td>rdc</td><td>Libre service</td><td>4</td><td>i5-3570 8Go</td><td>24"</td><td>Intel HD 2500 (share)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle005_3_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle005_3&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle005_3" class="room" onclick="checkAll(&quot;Salle005_3&quot;)">&nbsp;Salle005 <i>(30)</i>
+	  <div id="div_Salle005_3" class="hidden" style="display: block;">
+<input type="checkbox" id="1" class="host">&nbsp;beatles<br>
+<input type="checkbox" id="516" class="host">&nbsp;bertignac<br>
+<input type="checkbox" id="2" class="host">&nbsp;blackmore<br>
+<input type="checkbox" id="3" class="host">&nbsp;dimeola<br>
+<input type="checkbox" id="4" class="host">&nbsp;diogene<br>
+<input type="checkbox" id="5" class="host">&nbsp;gambale<br>
+<input type="checkbox" id="6" class="host">&nbsp;gilbert<br>
+<input type="checkbox" id="514" class="host">&nbsp;goldman<br>
+<input type="checkbox" id="7" class="host">&nbsp;hackett<br>
+<input type="checkbox" id="8" class="host">&nbsp;hammett<br>
+<input type="checkbox" id="9" class="host">&nbsp;hendrix<br>
+<input type="checkbox" id="10" class="host">&nbsp;holdsworth<br>
+<input type="checkbox" id="11" class="host">&nbsp;jordan<br>
+<input type="checkbox" id="517" class="host">&nbsp;knopfler<br>
+<input type="checkbox" id="12" class="host">&nbsp;malmsteen<br>
+<input type="checkbox" id="13" class="host">&nbsp;mclaughlin<br>
+<input type="checkbox" id="14" class="host">&nbsp;moore<br>
+<input type="checkbox" id="15" class="host">&nbsp;morse<br>
+<input type="checkbox" id="16" class="host">&nbsp;page<br>
+<input type="checkbox" id="17" class="host">&nbsp;queen<br>
+<input type="checkbox" id="513" class="host">&nbsp;reinhardt<br>
+<input type="checkbox" id="18" class="host">&nbsp;riemann<br>
+<input type="checkbox" id="19" class="host">&nbsp;satriani<br>
+<input type="checkbox" id="20" class="host">&nbsp;slash<br>
+<input type="checkbox" id="21" class="host">&nbsp;smith<br>
+<input type="checkbox" id="22" class="host">&nbsp;vanhalen<br>
+<input type="checkbox" id="515" class="host">&nbsp;winston<br>
+<input type="checkbox" id="456" class="host">&nbsp;wylde<br>
+<input type="checkbox" id="23" class="host">&nbsp;young<br>
+<input type="checkbox" id="24" class="host">&nbsp;zappa<br>
+
+</div></td><td>cremi</td><td>rdc</td><td></td><td>4</td><td>E3-1240(v5) 16Go</td><td>24"</td><td>GTX 960 (4Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle007_4_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle007_4&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle007_4" class="room" onclick="checkAll(&quot;Salle007_4&quot;)">&nbsp;Salle007 <i>(20)</i>
+	  <div id="div_Salle007_4" class="hidden" style="display: block;">
+<input type="checkbox" id="25" class="host">&nbsp;bavilk<br>
+<input type="checkbox" id="26" class="host">&nbsp;becks<br>
+<input type="checkbox" id="27" class="host">&nbsp;bernardus<br>
+<input type="checkbox" id="28" class="host">&nbsp;carioca<br>
+<input type="checkbox" id="29" class="host">&nbsp;chimay<br>
+<input type="checkbox" id="30" class="host">&nbsp;florian<br>
+<input type="checkbox" id="31" class="host">&nbsp;kaly<br>
+<input type="checkbox" id="32" class="host">&nbsp;killian<br>
+<input type="checkbox" id="33" class="host">&nbsp;krick<br>
+<input type="checkbox" id="34" class="host">&nbsp;niva<br>
+<input type="checkbox" id="35" class="host">&nbsp;orval<br>
+<input type="checkbox" id="36" class="host">&nbsp;palm<br>
+<input type="checkbox" id="37" class="host">&nbsp;pelican<br>
+<input type="checkbox" id="38" class="host">&nbsp;pietra<br>
+<input type="checkbox" id="39" class="host">&nbsp;primus<br>
+<input type="checkbox" id="40" class="host">&nbsp;saaz<br>
+<input type="checkbox" id="41" class="host">&nbsp;secondus<br>
+<input type="checkbox" id="42" class="host">&nbsp;stella<br>
+<input type="checkbox" id="43" class="host">&nbsp;westmale<br>
+<input type="checkbox" id="44" class="host">&nbsp;yixing<br>
+
+</div></td><td>cremi</td><td>rdc</td><td> </td><td>4</td><td>E3-1240(v6) 16Go</td><td>2x24"</td><td>GTX 1060 (6Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle008_5_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle008_5&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle008_5" class="room" onclick="checkAll(&quot;Salle008_5&quot;)">&nbsp;Salle008 <i>(20)</i>
+	  <div id="div_Salle008_5" class="hidden" style="display: block;">
+<input type="checkbox" id="45" class="host">&nbsp;beetlejuice<br>
+<input type="checkbox" id="46" class="host">&nbsp;braque<br>
+<input type="checkbox" id="47" class="host">&nbsp;cezanne<br>
+<input type="checkbox" id="48" class="host">&nbsp;chagall<br>
+<input type="checkbox" id="49" class="host">&nbsp;corot<br>
+<input type="checkbox" id="50" class="host">&nbsp;dali<br>
+<input type="checkbox" id="51" class="host">&nbsp;degas<br>
+<input type="checkbox" id="52" class="host">&nbsp;ernst<br>
+<input type="checkbox" id="53" class="host">&nbsp;gauguin<br>
+<input type="checkbox" id="54" class="host">&nbsp;leger<br>
+<input type="checkbox" id="55" class="host">&nbsp;leonardo<br>
+<input type="checkbox" id="56" class="host">&nbsp;magritte<br>
+<input type="checkbox" id="57" class="host">&nbsp;matisse<br>
+<input type="checkbox" id="58" class="host">&nbsp;millet<br>
+<input type="checkbox" id="59" class="host">&nbsp;miro<br>
+<input type="checkbox" id="60" class="host">&nbsp;modigliani<br>
+<input type="checkbox" id="61" class="host">&nbsp;monet<br>
+<input type="checkbox" id="62" class="host">&nbsp;pissarro<br>
+<input type="checkbox" id="63" class="host">&nbsp;renoir<br>
+<input type="checkbox" id="64" class="host">&nbsp;vangogh<br>
+
+</div></td><td>cremi</td><td>rdc</td><td>Calcul //</td><td>24</td><td>2x Xeon®Gold 5118 64Go</td><td>2x20"</td><td>RTX 2070 (8Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle009_6_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle009_6&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle009_6" class="room" onclick="checkAll(&quot;Salle009_6&quot;)">&nbsp;Salle009 <i>(25)</i>
+	  <div id="div_Salle009_6" class="hidden" style="display: block;">
+<input type="checkbox" id="65" class="host">&nbsp;archimede<br>
+<input type="checkbox" id="66" class="host">&nbsp;arthur<br>
+<input type="checkbox" id="67" class="host">&nbsp;buffy<br>
+<input type="checkbox" id="68" class="host">&nbsp;casper<br>
+<input type="checkbox" id="69" class="host">&nbsp;derek<br>
+<input type="checkbox" id="70" class="host">&nbsp;euskadi<br>
+<input type="checkbox" id="71" class="host">&nbsp;excalibur<br>
+<input type="checkbox" id="72" class="host">&nbsp;falcon<br>
+<input type="checkbox" id="73" class="host">&nbsp;flyingv<br>
+<input type="checkbox" id="74" class="host">&nbsp;gibsonsg<br>
+<input type="checkbox" id="75" class="host">&nbsp;hal<br>
+<input type="checkbox" id="76" class="host">&nbsp;hector<br>
+<input type="checkbox" id="77" class="host">&nbsp;jack<br>
+<input type="checkbox" id="78" class="host">&nbsp;jarjar<br>
+<input type="checkbox" id="79" class="host">&nbsp;kay<br>
+<input type="checkbox" id="80" class="host">&nbsp;lespaul<br>
+<input type="checkbox" id="81" class="host">&nbsp;manet<br>
+<input type="checkbox" id="82" class="host">&nbsp;merlin<br>
+<input type="checkbox" id="83" class="host">&nbsp;nikopol<br>
+<input type="checkbox" id="84" class="host">&nbsp;pelinove<br>
+<input type="checkbox" id="85" class="host">&nbsp;penguin<br>
+<input type="checkbox" id="86" class="host">&nbsp;tequila<br>
+<input type="checkbox" id="87" class="host">&nbsp;universe<br>
+<input type="checkbox" id="88" class="host">&nbsp;verone<br>
+<input type="checkbox" id="89" class="host">&nbsp;visual<br>
+
+</div></td><td>cremi</td><td>rdc</td><td></td><td>4</td><td>E3-1240(v6) 16Go</td><td>24"</td><td>GTX 1060 (6Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle101_7_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle101_7&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle101_7" class="room" onclick="checkAll(&quot;Salle101_7&quot;)">&nbsp;Salle101 <i>(20)</i>
+	  <div id="div_Salle101_7" class="hidden" style="display: block;">
+<input type="checkbox" id="90" class="host">&nbsp;auchentoshan<br>
+<input type="checkbox" id="91" class="host">&nbsp;blackbush<br>
+<input type="checkbox" id="92" class="host">&nbsp;bowmore<br>
+<input type="checkbox" id="93" class="host">&nbsp;bushmills<br>
+<input type="checkbox" id="94" class="host">&nbsp;caolila<br>
+<input type="checkbox" id="95" class="host">&nbsp;cardhu<br>
+<input type="checkbox" id="96" class="host">&nbsp;glenfiddich<br>
+<input type="checkbox" id="97" class="host">&nbsp;glengarioch<br>
+<input type="checkbox" id="98" class="host">&nbsp;glenmorangie<br>
+<input type="checkbox" id="99" class="host">&nbsp;islay<br>
+<input type="checkbox" id="100" class="host">&nbsp;knockdhu<br>
+<input type="checkbox" id="101" class="host">&nbsp;lagavulin<br>
+<input type="checkbox" id="102" class="host">&nbsp;laphroaig<br>
+<input type="checkbox" id="103" class="host">&nbsp;ledaig<br>
+<input type="checkbox" id="104" class="host">&nbsp;macallan<br>
+<input type="checkbox" id="105" class="host">&nbsp;mortlach<br>
+<input type="checkbox" id="106" class="host">&nbsp;oban<br>
+<input type="checkbox" id="107" class="host">&nbsp;pittyvaich<br>
+<input type="checkbox" id="108" class="host">&nbsp;portellen<br>
+<input type="checkbox" id="109" class="host">&nbsp;tamnavulin<br>
+
+</div></td><td>cremi</td><td>1</td><td></td><td>4</td><td>E3-1240(v5) 16Go</td><td>2x24"</td><td>GTX 960 (4Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle102_8_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle102_8&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle102_8" class="room" onclick="checkAll(&quot;Salle102_8&quot;)">&nbsp;Salle102 <i>(20)</i>
+	  <div id="div_Salle102_8" class="hidden" style="display: block;">
+<input type="checkbox" id="111" class="host">&nbsp;balden<br>
+<input type="checkbox" id="112" class="host">&nbsp;biot<br>
+<input type="checkbox" id="113" class="host">&nbsp;bleriot<br>
+<input type="checkbox" id="114" class="host">&nbsp;bourhis<br>
+<input type="checkbox" id="115" class="host">&nbsp;breguet<br>
+<input type="checkbox" id="116" class="host">&nbsp;bustov<br>
+<input type="checkbox" id="117" class="host">&nbsp;cayley<br>
+<input type="checkbox" id="118" class="host">&nbsp;chanute<br>
+<input type="checkbox" id="119" class="host">&nbsp;cody<br>
+<input type="checkbox" id="120" class="host">&nbsp;curtiss<br>
+<input type="checkbox" id="121" class="host">&nbsp;delagrange<br>
+<input type="checkbox" id="122" class="host">&nbsp;dumont<br>
+<input type="checkbox" id="123" class="host">&nbsp;gasnier<br>
+<input type="checkbox" id="124" class="host">&nbsp;lebris<br>
+<input type="checkbox" id="125" class="host">&nbsp;lilienthal<br>
+<input type="checkbox" id="126" class="host">&nbsp;moy<br>
+<input type="checkbox" id="127" class="host">&nbsp;pilcher<br>
+<input type="checkbox" id="128" class="host">&nbsp;robart<br>
+<input type="checkbox" id="129" class="host">&nbsp;voisin<br>
+<input type="checkbox" id="130" class="host">&nbsp;wright<br>
+
+</div></td><td>cremi</td><td>1</td><td></td><td>4</td><td>E3-1240(v5) 16Go</td><td>2x24"</td><td>GTX 1060 (6Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle103_9_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle103_9&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle103_9" class="room" onclick="checkAll(&quot;Salle103_9&quot;)">&nbsp;Salle103 <i>(20)</i>
+	  <div id="div_Salle103_9" class="hidden" style="display: block;">
+<input type="checkbox" id="132" class="host">&nbsp;agenum<br>
+<input type="checkbox" id="133" class="host">&nbsp;aleria<br>
+<input type="checkbox" id="134" class="host">&nbsp;alesia<br>
+<input type="checkbox" id="135" class="host">&nbsp;aluminium<br>
+<input type="checkbox" id="136" class="host">&nbsp;anicium<br>
+<input type="checkbox" id="137" class="host">&nbsp;aquarium<br>
+<input type="checkbox" id="138" class="host">&nbsp;avoranfix<br>
+<input type="checkbox" id="139" class="host">&nbsp;babaorum<br>
+<input type="checkbox" id="140" class="host">&nbsp;beaufix<br>
+<input type="checkbox" id="141" class="host">&nbsp;elevedelix<br>
+<input type="checkbox" id="142" class="host">&nbsp;goudurix<br>
+<input type="checkbox" id="143" class="host">&nbsp;jolitorax<br>
+<input type="checkbox" id="144" class="host">&nbsp;labeldecadix<br>
+<input type="checkbox" id="145" class="host">&nbsp;laudanum<br>
+<input type="checkbox" id="146" class="host">&nbsp;lentix<br>
+<input type="checkbox" id="147" class="host">&nbsp;lutetia<br>
+<input type="checkbox" id="148" class="host">&nbsp;nenjetepus<br>
+<input type="checkbox" id="149" class="host">&nbsp;octodurum<br>
+<input type="checkbox" id="150" class="host">&nbsp;petitbonum<br>
+<input type="checkbox" id="151" class="host">&nbsp;serum<br>
+
+</div></td><td>cremi</td><td>1</td><td></td><td>4</td><td>E3-1240(v6) 16Go</td><td>2x24"</td><td>GTX 1060 (6Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle104_10_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle104_10&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle104_10" class="room" onclick="checkAll(&quot;Salle104_10&quot;)">&nbsp;Salle104 <i>(20)</i>
+	  <div id="div_Salle104_10" class="hidden" style="display: block;">
+<input type="checkbox" id="152" class="host">&nbsp;albans<br>
+<input type="checkbox" id="153" class="host">&nbsp;burzamil<br>
+<input type="checkbox" id="154" class="host">&nbsp;cenva<br>
+<input type="checkbox" id="155" class="host">&nbsp;chani<br>
+<input type="checkbox" id="156" class="host">&nbsp;cheonech<br>
+<input type="checkbox" id="157" class="host">&nbsp;daniel<br>
+<input type="checkbox" id="158" class="host">&nbsp;devries<br>
+<input type="checkbox" id="159" class="host">&nbsp;hawat<br>
+<input type="checkbox" id="160" class="host">&nbsp;hayt<br>
+<input type="checkbox" id="161" class="host">&nbsp;holtzman<br>
+<input type="checkbox" id="162" class="host">&nbsp;jamis<br>
+<input type="checkbox" id="163" class="host">&nbsp;jessica<br>
+<input type="checkbox" id="164" class="host">&nbsp;joe<br>
+<input type="checkbox" id="165" class="host">&nbsp;kynes<br>
+<input type="checkbox" id="166" class="host">&nbsp;liet<br>
+<input type="checkbox" id="167" class="host">&nbsp;moneo<br>
+<input type="checkbox" id="168" class="host">&nbsp;patrin<br>
+<input type="checkbox" id="169" class="host">&nbsp;shaddam<br>
+<input type="checkbox" id="170" class="host">&nbsp;vladimir<br>
+<input type="checkbox" id="171" class="host">&nbsp;wensicia<br>
+
+</div></td><td>cremi</td><td>1</td><td></td><td>4</td><td>E3-1240(v5) 16Go</td><td>24"</td><td>GTX 960 (4Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle105_11_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle105_11&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle105_11" class="room" onclick="checkAll(&quot;Salle105_11&quot;)">&nbsp;Salle105 <i>(20)</i>
+	  <div id="div_Salle105_11" class="hidden" style="display: block;">
+<input type="checkbox" id="172" class="host">&nbsp;alia<br>
+<input type="checkbox" id="173" class="host">&nbsp;bellonda<br>
+<input type="checkbox" id="174" class="host">&nbsp;corba<br>
+<input type="checkbox" id="175" class="host">&nbsp;dama<br>
+<input type="checkbox" id="176" class="host">&nbsp;feydrautha<br>
+<input type="checkbox" id="177" class="host">&nbsp;ghanima<br>
+<input type="checkbox" id="178" class="host">&nbsp;halleck<br>
+<input type="checkbox" id="179" class="host">&nbsp;idaho<br>
+<input type="checkbox" id="180" class="host">&nbsp;lucila<br>
+<input type="checkbox" id="181" class="host">&nbsp;murbella<br>
+<input type="checkbox" id="182" class="host">&nbsp;noree<br>
+<input type="checkbox" id="183" class="host">&nbsp;odrade<br>
+<input type="checkbox" id="184" class="host">&nbsp;scytale<br>
+<input type="checkbox" id="185" class="host">&nbsp;sheeana<br>
+<input type="checkbox" id="186" class="host">&nbsp;stilgar<br>
+<input type="checkbox" id="187" class="host">&nbsp;talamane<br>
+<input type="checkbox" id="188" class="host">&nbsp;taraza<br>
+<input type="checkbox" id="189" class="host">&nbsp;tegs<br>
+<input type="checkbox" id="190" class="host">&nbsp;tuek<br>
+<input type="checkbox" id="191" class="host">&nbsp;usul<br>
+
+</div></td><td>cremi</td><td>1</td><td></td><td>4</td><td>E3-1240(v5) 16Go</td><td>2x24"</td><td>GTX 1060 (6Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle201_12_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle201_12&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle201_12" class="room" onclick="checkAll(&quot;Salle201_12&quot;)">&nbsp;Salle201 <i>(20)</i>
+	  <div id="div_Salle201_12" class="hidden" style="display: block;">
+<input type="checkbox" id="192" class="host">&nbsp;ader<br>
+<input type="checkbox" id="193" class="host">&nbsp;arnaudvidal<br>
+<input type="checkbox" id="194" class="host">&nbsp;bellaud<br>
+<input type="checkbox" id="195" class="host">&nbsp;bessou<br>
+<input type="checkbox" id="196" class="host">&nbsp;camelat<br>
+<input type="checkbox" id="197" class="host">&nbsp;cortet<br>
+<input type="checkbox" id="198" class="host">&nbsp;daubasse<br>
+<input type="checkbox" id="199" class="host">&nbsp;gardenal<br>
+<input type="checkbox" id="200" class="host">&nbsp;garros<br>
+<input type="checkbox" id="201" class="host">&nbsp;girardeau<br>
+<input type="checkbox" id="202" class="host">&nbsp;mistral<br>
+<input type="checkbox" id="203" class="host">&nbsp;montanhagol<br>
+<input type="checkbox" id="204" class="host">&nbsp;mouret<br>
+<input type="checkbox" id="205" class="host">&nbsp;pegulhan<br>
+<input type="checkbox" id="206" class="host">&nbsp;peirevidal<br>
+<input type="checkbox" id="207" class="host">&nbsp;peyrol<br>
+<input type="checkbox" id="208" class="host">&nbsp;puycibot<br>
+<input type="checkbox" id="209" class="host">&nbsp;riquier<br>
+<input type="checkbox" id="210" class="host">&nbsp;ruffi<br>
+<input type="checkbox" id="211" class="host">&nbsp;sordel<br>
+
+</div></td><td>cremi</td><td>2</td><td>Salle Dual Boot Multimedia / Vidéo / 3D</td><td>4</td><td>E5-1620(v4) 16Go</td><td>27"(4k)</td><td>GTX 1070 (8Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle202_13_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle202_13&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle202_13" class="room" onclick="checkAll(&quot;Salle202_13&quot;)">&nbsp;Salle202 <i>(20)</i>
+	  <div id="div_Salle202_13" class="hidden" style="display: block;">
+<input type="checkbox" id="212" class="host">&nbsp;blader<br>
+<input type="checkbox" id="213" class="host">&nbsp;bodon<br>
+<input type="checkbox" id="214" class="host">&nbsp;deborn<br>
+<input type="checkbox" id="215" class="host">&nbsp;dubartas<br>
+<input type="checkbox" id="216" class="host">&nbsp;ermengaud<br>
+<input type="checkbox" id="217" class="host">&nbsp;fabre<br>
+<input type="checkbox" id="218" class="host">&nbsp;figueira<br>
+<input type="checkbox" id="219" class="host">&nbsp;folquet<br>
+<input type="checkbox" id="220" class="host">&nbsp;foures<br>
+<input type="checkbox" id="221" class="host">&nbsp;froment<br>
+<input type="checkbox" id="222" class="host">&nbsp;godolin<br>
+<input type="checkbox" id="223" class="host">&nbsp;guilhemix<br>
+<input type="checkbox" id="224" class="host">&nbsp;jasmin<br>
+<input type="checkbox" id="225" class="host">&nbsp;lechapelain<br>
+<input type="checkbox" id="226" class="host">&nbsp;marcabrun<br>
+<input type="checkbox" id="227" class="host">&nbsp;miraval<br>
+<input type="checkbox" id="228" class="host">&nbsp;perbosc<br>
+<input type="checkbox" id="229" class="host">&nbsp;plomet<br>
+<input type="checkbox" id="230" class="host">&nbsp;rudel<br>
+<input type="checkbox" id="231" class="host">&nbsp;ventadorn<br>
+
+</div></td><td>cremi</td><td>2</td><td>Spécialité Son</td><td>4</td><td>E5-1620(v4) 16Go</td><td>2x24"</td><td>GTX 1070 (8Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle203_14_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle203_14&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle203_14" class="room" onclick="checkAll(&quot;Salle203_14&quot;)">&nbsp;Salle203 <i>(20)</i>
+	  <div id="div_Salle203_14" class="hidden" style="display: block;">
+<input type="checkbox" id="232" class="host">&nbsp;beverly<br>
+<input type="checkbox" id="233" class="host">&nbsp;data<br>
+<input type="checkbox" id="234" class="host">&nbsp;kira<br>
+<input type="checkbox" id="235" class="host">&nbsp;kirk<br>
+<input type="checkbox" id="236" class="host">&nbsp;mccoy<br>
+<input type="checkbox" id="237" class="host">&nbsp;obrien<br>
+<input type="checkbox" id="238" class="host">&nbsp;odo<br>
+<input type="checkbox" id="239" class="host">&nbsp;picard<br>
+<input type="checkbox" id="240" class="host">&nbsp;pulaski<br>
+<input type="checkbox" id="241" class="host">&nbsp;quark<br>
+<input type="checkbox" id="242" class="host">&nbsp;riker<br>
+<input type="checkbox" id="243" class="host">&nbsp;scotty<br>
+<input type="checkbox" id="244" class="host">&nbsp;spock<br>
+<input type="checkbox" id="245" class="host">&nbsp;sulu<br>
+<input type="checkbox" id="246" class="host">&nbsp;tasha<br>
+<input type="checkbox" id="247" class="host">&nbsp;tchekov<br>
+<input type="checkbox" id="248" class="host">&nbsp;troi<br>
+<input type="checkbox" id="249" class="host">&nbsp;uhura<br>
+<input type="checkbox" id="250" class="host">&nbsp;westly<br>
+<input type="checkbox" id="251" class="host">&nbsp;worf<br>
+
+</div></td><td>cremi</td><td>2</td><td>IA, Cacul //</td><td>12</td><td>Xeon®Gold 5118 64Go</td><td>2x24"</td><td>RTX 2070 (8Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>IA, calcul //</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle204_15_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle204_15&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle204_15" class="room" onclick="checkAll(&quot;Salle204_15&quot;)">&nbsp;Salle204 <i>(20)</i>
+	  <div id="div_Salle204_15" class="hidden" style="display: block;">
+<input type="checkbox" id="252" class="host">&nbsp;botero<br>
+<input type="checkbox" id="253" class="host">&nbsp;buffet<br>
+<input type="checkbox" id="254" class="host">&nbsp;cassatt<br>
+<input type="checkbox" id="255" class="host">&nbsp;escher<br>
+<input type="checkbox" id="256" class="host">&nbsp;goya<br>
+<input type="checkbox" id="257" class="host">&nbsp;kandinsky<br>
+<input type="checkbox" id="258" class="host">&nbsp;lautrec<br>
+<input type="checkbox" id="259" class="host">&nbsp;legreco<br>
+<input type="checkbox" id="260" class="host">&nbsp;marquet<br>
+<input type="checkbox" id="261" class="host">&nbsp;morissot<br>
+<input type="checkbox" id="262" class="host">&nbsp;opalka<br>
+<input type="checkbox" id="263" class="host">&nbsp;redon<br>
+<input type="checkbox" id="264" class="host">&nbsp;rembrandt<br>
+<input type="checkbox" id="265" class="host">&nbsp;seurat<br>
+<input type="checkbox" id="266" class="host">&nbsp;signac<br>
+<input type="checkbox" id="267" class="host">&nbsp;tissot<br>
+<input type="checkbox" id="268" class="host">&nbsp;velasquez<br>
+<input type="checkbox" id="269" class="host">&nbsp;vlaminck<br>
+<input type="checkbox" id="270" class="host">&nbsp;watteau<br>
+<input type="checkbox" id="271" class="host">&nbsp;whistler<br>
+
+</div></td><td>cremi</td><td>2</td><td></td><td>4</td><td>E3-1240(v3) 8Go</td><td>24"</td><td>Quadro k600 (1Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle205_16_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle205_16&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle205_16" class="room" onclick="checkAll(&quot;Salle205_16&quot;)">&nbsp;Salle205 <i>(20)</i>
+	  <div id="div_Salle205_16" class="hidden" style="display: block;">
+<input type="checkbox" id="272" class="host">&nbsp;gandalf<br>
+<input type="checkbox" id="273" class="host">&nbsp;gimli<br>
+<input type="checkbox" id="274" class="host">&nbsp;glorfindel<br>
+<input type="checkbox" id="275" class="host">&nbsp;goldberry<br>
+<input type="checkbox" id="276" class="host">&nbsp;gollum<br>
+<input type="checkbox" id="277" class="host">&nbsp;hoarmurath<br>
+<input type="checkbox" id="278" class="host">&nbsp;indur<br>
+<input type="checkbox" id="279" class="host">&nbsp;khamul<br>
+<input type="checkbox" id="280" class="host">&nbsp;legolas<br>
+<input type="checkbox" id="281" class="host">&nbsp;merry<br>
+<input type="checkbox" id="282" class="host">&nbsp;pallando<br>
+<input type="checkbox" id="283" class="host">&nbsp;pippin<br>
+<input type="checkbox" id="284" class="host">&nbsp;radagast<br>
+<input type="checkbox" id="285" class="host">&nbsp;ren<br>
+<input type="checkbox" id="286" class="host">&nbsp;saruman<br>
+<input type="checkbox" id="287" class="host">&nbsp;shagrat<br>
+<input type="checkbox" id="288" class="host">&nbsp;smaug<br>
+<input type="checkbox" id="289" class="host">&nbsp;theoden<br>
+<input type="checkbox" id="290" class="host">&nbsp;thranduil<br>
+<input type="checkbox" id="291" class="host">&nbsp;uvatha<br>
+
+</div></td><td>cremi</td><td>2</td><td></td><td>4</td><td>E3-1240(v5) 16Go</td><td>2x24"</td><td>GTX 1060 (6Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle206_17_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle206_17&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle206_17" class="room" onclick="checkAll(&quot;Salle206_17&quot;)">&nbsp;Salle206 <i>(20)</i>
+	  <div id="div_Salle206_17" class="hidden" style="display: block;">
+<input type="checkbox" id="292" class="host">&nbsp;adunaphel<br>
+<input type="checkbox" id="293" class="host">&nbsp;akhorahil<br>
+<input type="checkbox" id="294" class="host">&nbsp;alatar<br>
+<input type="checkbox" id="295" class="host">&nbsp;aragorn<br>
+<input type="checkbox" id="296" class="host">&nbsp;arwen<br>
+<input type="checkbox" id="297" class="host">&nbsp;beorn<br>
+<input type="checkbox" id="298" class="host">&nbsp;bilbo<br>
+<input type="checkbox" id="299" class="host">&nbsp;bombadil<br>
+<input type="checkbox" id="300" class="host">&nbsp;boromir<br>
+<input type="checkbox" id="301" class="host">&nbsp;celeborn<br>
+<input type="checkbox" id="302" class="host">&nbsp;cirdan<br>
+<input type="checkbox" id="303" class="host">&nbsp;durin<br>
+<input type="checkbox" id="304" class="host">&nbsp;dwar<br>
+<input type="checkbox" id="305" class="host">&nbsp;elrond<br>
+<input type="checkbox" id="306" class="host">&nbsp;eomer<br>
+<input type="checkbox" id="307" class="host">&nbsp;eowyn<br>
+<input type="checkbox" id="308" class="host">&nbsp;ermurazor<br>
+<input type="checkbox" id="309" class="host">&nbsp;faramir<br>
+<input type="checkbox" id="310" class="host">&nbsp;frodo<br>
+<input type="checkbox" id="311" class="host">&nbsp;galadriel<br>
+
+</div></td><td>cremi</td><td>2</td><td></td><td>4</td><td>E3-1240(v6) 16Go</td><td>2x24"</td><td>GTX 1060 (6Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle207_18_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle207_18&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle207_18" class="room" onclick="checkAll(&quot;Salle207_18&quot;)">&nbsp;Salle207 <i>(20)</i>
+	  <div id="div_Salle207_18" class="hidden" style="display: block;">
+<input type="checkbox" id="312" class="host">&nbsp;jrenoir<br>
+<input type="checkbox" id="313" class="host">&nbsp;kurosawa<br>
+<input type="checkbox" id="314" class="host">&nbsp;lang<br>
+<input type="checkbox" id="315" class="host">&nbsp;langdon<br>
+<input type="checkbox" id="316" class="host">&nbsp;leone<br>
+<input type="checkbox" id="317" class="host">&nbsp;linder<br>
+<input type="checkbox" id="318" class="host">&nbsp;losey<br>
+<input type="checkbox" id="319" class="host">&nbsp;mizoguchi<br>
+<input type="checkbox" id="320" class="host">&nbsp;murnau<br>
+<input type="checkbox" id="321" class="host">&nbsp;ophuls<br>
+<input type="checkbox" id="322" class="host">&nbsp;pasolini<br>
+<input type="checkbox" id="323" class="host">&nbsp;powell<br>
+<input type="checkbox" id="324" class="host">&nbsp;tati<br>
+<input type="checkbox" id="325" class="host">&nbsp;tourneur<br>
+<input type="checkbox" id="326" class="host">&nbsp;truffaut<br>
+<input type="checkbox" id="327" class="host">&nbsp;vigo<br>
+<input type="checkbox" id="328" class="host">&nbsp;vonsternberg<br>
+<input type="checkbox" id="329" class="host">&nbsp;vonstroheim<br>
+<input type="checkbox" id="330" class="host">&nbsp;welles<br>
+<input type="checkbox" id="331" class="host">&nbsp;wiene<br>
+
+</div></td><td>cremi</td><td>2</td><td></td><td>4</td><td>E3-1240(v5) 16Go</td><td>2x24"</td><td>GTX 1060 (6Go)</td><td>Linux(64b)/Windows 10(64b)</td><td>Libre Service</td>
+</tr>
+<tr class="display"> 
+ <td><img id="div_Salle208_19_img" src="./images/moins.gif" onclick="toggledisplay(&quot;div_Salle208_19&quot;)" class="hidden" style="" width="16" height="16">
+	  <input type="checkbox" id="Salle208_19" class="room" onclick="checkAll(&quot;Salle208_19&quot;)">&nbsp;Salle208 <i>(20)</i>
+	  <div id="div_Salle208_19" class="hidden" style="display: block;">
+<input type="checkbox" id="332" class="host">&nbsp;bava<br>
+<input type="checkbox" id="333" class="host">&nbsp;bergman<br>
+<input type="checkbox" id="334" class="host">&nbsp;browning<br>
+<input type="checkbox" id="335" class="host">&nbsp;bunuel<br>
+<input type="checkbox" id="336" class="host">&nbsp;capra<br>
+<input type="checkbox" id="337" class="host">&nbsp;carne<br>
+<input type="checkbox" id="338" class="host">&nbsp;cassavetes<br>
+<input type="checkbox" id="339" class="host">&nbsp;chaplin<br>
+<input type="checkbox" id="340" class="host">&nbsp;clouzot<br>
+<input type="checkbox" id="341" class="host">&nbsp;cocteau<br>
+<input type="checkbox" id="342" class="host">&nbsp;eisenstein<br>
+<input type="checkbox" id="343" class="host">&nbsp;fassbinder<br>
+<input type="checkbox" id="344" class="host">&nbsp;fellini<br>
+<input type="checkbox" id="345" class="host">&nbsp;ford<br>
+<input type="checkbox" id="346" class="host">&nbsp;gance<br>
+<input type="checkbox" id="347" class="host">&nbsp;griffith<br>
+<input type="checkbox" id="348" class="host">&nbsp;hawks<br>
+<input type="checkbox" id="349" class="host">&nbsp;hitchcock<br>
+<input type="checkbox" id="350" class="host">&nbsp;huston<br>
+<input type="checkbox" id="351" class="host">&nbsp;keaton<br>
+
